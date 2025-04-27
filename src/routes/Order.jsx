@@ -8,6 +8,10 @@ function Order() {
 
   useEffect(() => {
     const OrderItems = JSON.parse(localStorage.getItem("Order"));
+    if (!OrderItems) {
+      setOrder([]);
+      return;
+    }
       setOrder(OrderItems);
   }, []);  // Added dependency array
   

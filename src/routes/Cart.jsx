@@ -10,11 +10,18 @@ function Cart() {
 
   useEffect(() => {
     const log = JSON.parse(localStorage.getItem("Cart"));
+    if (!log) {
+      setcart([]);
+      return;
+    }
     setcart(log);
     const total = log.reduce((acc, item) => acc + parseInt(item.prize), 0);
     setTotal(total);
   }, []);
 
+
+
+  
   return (
     <>
       <Nav />
